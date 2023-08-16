@@ -1,7 +1,7 @@
 import { SuccessModal } from "@/components";
-import IPTContract from "@/contracts/BNBT/";
-import MarketContract from "@/contracts/NFTCardMarketplaceContract";
-import NftContract from "@/contracts/NFTCardContract";
+import BNBTContract from "@/contracts/BNBTContract";
+import NFTCardMarketplaceContract from "@/contracts/NFTCardMarketplaceContract";
+import NFTCardContract from "@/contracts/NFTCardContract";
 import { useAppSelector } from "@/reduxs/hooks";
 import { getToast } from "@/utils";
 import { INftItem } from "@/_types_";
@@ -19,8 +19,8 @@ export default function P2PView() {
 
   const getListedNfts = React.useCallback(async () => {
     try {
-      const marketContract = new MarketContract();
-      const nftContract = new NftContract();
+      const marketContract = new NFTCardMarketplaceContract();
+      const nftContract = new NFTCardContract();
 
       const listedList = await marketContract.getNFTListedOnMarketplace();
       const nftList = await nftContract.getNftInfo(listedList);
@@ -36,9 +36,9 @@ export default function P2PView() {
     if (!web3Provider || !nft.price) return;
     try {
       setCurrentNft(nft);
-      const marketContract = new MarketContract(web3Provider);
-      const iptContract = new IPTContract(web3Provider);      
-      await iptContract.approve(marketContract._contractAddress, nft.price);
+      const marketContract = new NFTCardMarketplaceContract(web3Provider);
+      const bnbtContract = new BNBTContract(web3Provider);      
+      await bnbtContract.approve(marketContract._contractAddress, nft.price);
       const tx = await marketContract.buyNft(nft.id, nft.price);
       setTxHash(tx);
       onOpen();

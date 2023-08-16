@@ -6,8 +6,8 @@ import { IPackage, IRate, IWalletInfo, TOKEN } from "../../_types_";
 import { ethers } from "ethers";
 import { packages } from "../../constants";
 import InvestCard from "./components/InvestCard";
-import CrowSaleContract from "../../contracts/CrowdSale";
-import UsdtContract from "../../contracts/USDTContract";
+import CrowSaleContract from "@/contracts/CrowdSaleContract";
+import USDTContract from "@/contracts/USDTContract";
 
 export default function InvestView() {
   const [wallet, setWallet] = React.useState<IWalletInfo>();
@@ -59,7 +59,7 @@ export default function InvestView() {
       let hash ='';
       const crowdContract = new CrowSaleContract(web3Provider);
       if (pk.token === TOKEN.USDT) {
-        const usdtContract = new UsdtContract(web3Provider);
+        const usdtContract = new USDTContract(web3Provider);
         await usdtContract.approve(crowdContract._contractAddress, pk.amount / rate.bnbRate);
         hash = await crowdContract.buyTokenByUSDT(pk.amount);
       } else {

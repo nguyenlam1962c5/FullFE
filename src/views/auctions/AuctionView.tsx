@@ -1,14 +1,14 @@
 import { useAppSelector } from "@/reduxs/hooks";
 import React from "react";
-import NftContract from "@/contracts/NFTCardContract";
-import MarketContract from "@/contracts/NFTCardMarketplaceContract";
+import NFTCardContract from "@/contracts/NFTCardContract";
+import NFTCardMarketplaceContract from "@/contracts/NFTCardMarketplaceContract";
+import BNBTContract from "@/contracts/BNBTContract";
 import { IAuctionInfo, INftItem } from "@/_types_";
 import { Flex, SimpleGrid, useBoolean } from "@chakra-ui/react";
 import NftAuction from "./components/NftAuction";
 import AuctionModal from "./components/AuctionModal";
 import AuctionContract from "@/contracts/Auction";
 import { SuccessModal } from "@/components";
-import BNBTContract from "@/contracts/BNBTContract";
 
 export default function AuctionView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);
@@ -24,7 +24,7 @@ export default function AuctionView() {
     if (!web3Provider) return;
     const auctionContract = new AuctionContract(web3Provider || undefined);
     const nfts = await auctionContract.getAuctionByStatus();
-    const nftContract = new NftContract(web3Provider);
+    const nftContract = new NFTCardContract(web3Provider);
     const auctionItems = await nftContract.getNftAuctionInfo(nfts);  
     setNfts(auctionItems);   
   }, [web3Provider]);
@@ -38,8 +38,8 @@ export default function AuctionView() {
     setIsProcessing(true);
     try {
       const auctionContract = new AuctionContract(web3Provider);
-      const iptContract = new IPTContract(web3Provider);
-      await iptContract.approve(auctionContract._contractAddress, bid);
+      const bnbtContract = new BNBTContract(web3Provider);
+      await bnbtContract.approve(auctionContract._contractAddress, bid);
       const tx = await auctionContract.joinAuction(nftSelected.auctionId, bid);
       setTxHash(tx);
       setIsAuctionSuccess(true);
