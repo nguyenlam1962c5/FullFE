@@ -5,7 +5,7 @@ export interface IWalletInfo {
 
 export interface IRate {
   usdtRate: number;
-  bnbRate: number;
+  bnbtRate: number;
 }
 
 export enum TOKEN {

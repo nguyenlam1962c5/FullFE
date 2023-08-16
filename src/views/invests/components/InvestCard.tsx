@@ -77,17 +77,25 @@ export default function InvestCard({
         border="1px solid #fff"
         color="#2faf21"
       >
-        {numberFormat(pak.amount)} IPT
+        {numberFormat(pak.amount)} BNBT
       </Button>
       <HStack my="15px">
         <Text color="gray">Amount of coins to pay: </Text>
-        <Text variant="notoSan" fontSize="16px">
+        <Text variant="notoSan" fontSize="16px" color="white">
           {numberFormat(pak.amount / rate)} {pak.token}
         </Text>
       </HStack>
 
-      <Button w="full" variant="primary" disabled={!walletInfo?.address || isBuying} onClick={onBuy}>
+      {/* <Button w="full" variant="primary" disabled={!walletInfo?.address || isBuying} onClick={onBuy}>
         {isBuying ? <Spinner /> : 'Buy Now'}        
+      </Button> */}
+
+      <Button
+        w="full" bg="blue" color="white" fontWeight="bold" 
+        border= "1px solid #080879" fontSize="20px"
+        disabled={!walletInfo?.address || isBuying}
+      >
+        Buy Now
       </Button>
 
     </Box>

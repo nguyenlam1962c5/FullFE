@@ -51,6 +51,8 @@ export default function Nft({
           <Text fontWeight="bold" fontSize="40px" fontStyle="italic">
             {
               Clarity[
+                // item.attributes?.find((p) => p.trait_type === "Rarity")
+                //   ?.value || 0
                 item.attributes?.find((p) => p.trait_type === "Rarity")
                   ?.value || 0
               ]

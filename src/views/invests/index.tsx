@@ -11,7 +11,7 @@ import USDTContract from "@/contracts/USDTContract";
 
 export default function InvestView() {
   const [wallet, setWallet] = React.useState<IWalletInfo>();
-  const [rate, setRate] = React.useState<IRate>({bnbRate: 0, usdtRate: 0});
+  const [rate, setRate] = React.useState<IRate>({bnbtRate: 0, usdtRate: 0});
   const [isProcessing, setIsProcessing] = React.useState<boolean>(false);
   const [pak, setPak] = React.useState<IPackage>();
   const [txHash, setTxHash] = React.useState<string>();
@@ -23,9 +23,9 @@ export default function InvestView() {
 
   const getRate = React.useCallback(async() => {
     const crowdContract = new CrowSaleContract();
-    const bnbRate =  await crowdContract.getBnbRate();
+    const bnbtRate =  await crowdContract.getBnbRate();
     const usdtRate = await crowdContract.getUsdtRate();  
-    setRate({bnbRate, usdtRate});
+    setRate({bnbtRate, usdtRate});
 
   }, []);
 
@@ -52,7 +52,7 @@ export default function InvestView() {
     }
   };
 
-  const handleBuyIco = async(pk: IPackage) => {
+  const handleBuyBnbt = async(pk: IPackage) => {
     if (!web3Provider) return;
       setPak(pk);
       setIsProcessing(true);
@@ -60,7 +60,7 @@ export default function InvestView() {
       const crowdContract = new CrowSaleContract(web3Provider);
       if (pk.token === TOKEN.USDT) {
         const usdtContract = new USDTContract(web3Provider);
-        await usdtContract.approve(crowdContract._contractAddress, pk.amount / rate.bnbRate);
+        await usdtContract.approve(crowdContract._contractAddress, pk.amount / rate.bnbtRate);
         hash = await crowdContract.buyTokenByUSDT(pk.amount);
       } else {
         hash = await crowdContract.buyTokenByBNB(pk.amount);
@@ -85,9 +85,9 @@ export default function InvestView() {
             pak={pk}
             key={String(index)}
             isBuying={isProcessing && pak?.key === pk.key}
-            rate={pk.token === TOKEN.BNB ? rate.bnbRate : rate.usdtRate}
+            rate={pk.token === TOKEN.BNB ? rate.bnbtRate : rate.usdtRate}
             walletInfo={wallet}
-            onBuy={() => handleBuyIco(pk)}
+            onBuy={() => handleBuyBnbt(pk)}
           />
         ))}
       </SimpleGrid>
@@ -96,7 +96,7 @@ export default function InvestView() {
         isOpen={isOpen}
         onClose={onClose}
         hash={txHash}
-        title="BUY ICO"
+        title="BUY BNBT"
       />
     </>
   );
