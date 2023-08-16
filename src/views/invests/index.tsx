@@ -6,8 +6,8 @@ import { IPackage, IRate, IWalletInfo, TOKEN } from "../../_types_";
 import { ethers } from "ethers";
 import { packages } from "../../constants";
 import InvestCard from "./components/InvestCard";
-import CrowSaleContract from "../../contracts/CrowdSaleContract";
-import UsdtContract from "../../contracts/UsdtContract";
+import CrowSaleContract from "../../contracts/CrowdSale";
+import UsdtContract from "../../contracts/USDTContract";
 
 export default function InvestView() {
   const [wallet, setWallet] = React.useState<IWalletInfo>();
