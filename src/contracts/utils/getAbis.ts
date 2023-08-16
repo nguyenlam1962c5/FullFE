@@ -1,14 +1,14 @@
-import CrowdSaleAbi from '../abis/crowd_sale.json';
-import UsdtAbi from '../abis/usdt.json';
-import NftAbi from '../abis/nft.json';
-import MarketAbi from '../abis/market.json';
-import AuctionAbi from '../abis/auction.json';
-import IptAbi from '../abis/ipt.json';
+import CrowdSaleAbi from '../abis/CrowdSale.json';
+import USDTAbi from '../abis/USDT.json';
+import NFTCardAbi from '../abis/NFTCard.json';
+import NFTCardMarketplaceAbi from '../abis/NFTCardMarketplace.json';
+import AuctionAbi from '../abis/Auction.json';
+import BNBTAbi from '../abis/BNBT.json';
 
 
 export const getCrowdSaleAbi = () => CrowdSaleAbi;
-export const getUsdtAbi = () => UsdtAbi;
-export const getNFTAbi = () => NftAbi;
-export const getMarketAbi = () => MarketAbi;
+export const getUSDTAbi = () => USDTAbi;
+export const getNFTCardAbi = () => NFTCardAbi;
+export const getNFTCardMarketplaceAbi = () => NFTCardMarketplaceAbi;
 export const getAuctionAbi = () => AuctionAbi;
-export const getIptAbi = () => IptAbi;
+export const getBNBTAbi = () => BNBTAbi;

@@ -2,13 +2,13 @@ import { IAuctionInfo, INftItem } from "@/_types_";
 import { BigNumber, ethers } from "ethers";
 import { Erc721 } from "./interfaces";
 import { getRPC } from "./utils/common";
-import { getNFTAbi } from "./utils/getAbis";
-import { getNFTAddress } from "./utils/getAddress";
+import { getNFTCardAbi } from "./utils/getAbis";
+import { getNFTCardAddress } from "./utils/getAddress";
 
-export default class NftContract extends Erc721 {
+export default class NFTCardContract extends Erc721 {
   constructor(provider?: ethers.providers.Web3Provider) {
     const rpcProvider = new ethers.providers.JsonRpcProvider(getRPC());
-    super(provider || rpcProvider, getNFTAddress(), getNFTAbi());
+    super(provider || rpcProvider, getNFTCardAddress(), getNFTCardAbi());
     if (!provider) {
       this._contract = new ethers.Contract(
         this._contractAddress,

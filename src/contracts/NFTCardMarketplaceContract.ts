@@ -2,13 +2,13 @@ import { INftItem } from "@/_types_";
 import { ethers } from "ethers";
 import { Erc721 } from "./interfaces";
 import { getRPC } from "./utils/common";
-import { getMarketAbi } from "./utils/getAbis";
-import { getMarketAddress } from "./utils/getAddress";
+import { getNFTCardMarketplaceAbi } from "./utils/getAbis";
+import { getNFTCardMarketplacetAddress } from "./utils/getAddress";
 
-export default class MarketContract extends Erc721 {
+export default class NFTCardMarketplaceContract extends Erc721 {
   constructor(provider?: ethers.providers.Web3Provider) {
     const rpcProvider = new ethers.providers.JsonRpcProvider(getRPC());
-    super(provider || rpcProvider, getMarketAddress(), getMarketAbi())
+    super(provider || rpcProvider, getNFTCardMarketplacetAddress(), getNFTCardMarketplaceAbi())
     if (!provider) {
       this._contract = new ethers.Contract(this._contractAddress,  this._abis, rpcProvider);
     }

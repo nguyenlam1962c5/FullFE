@@ -66,7 +66,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "hero_type",
+        "name": "nftCard_type",
         "type": "uint256"
       },
       {
@@ -436,7 +436,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "hero_type",
+        "name": "nftCard_type",
         "type": "uint256"
       }
     ],
@@ -581,7 +581,7 @@
       },
       {
         "internalType": "bytes",
-        "name": "_data",
+        "name": "data",
         "type": "bytes"
       }
     ],
@@ -604,19 +604,6 @@
       }
     ],
     "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "_newUrl",
-        "type": "string"
-      }
-    ],
-    "name": "setBaseUrl",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

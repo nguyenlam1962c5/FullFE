@@ -1,7 +1,7 @@
 import { SuccessModal } from "@/components";
 import ProcessingModal from "@/components/ProcessingModal";
-import MarketContract from "@/contracts/MarketContract";
-import NftContract from "@/contracts/NftContract";
+import MarketContract from "@/contracts/NFTCardMarketplaceContract";
+import NftContract from "@/contracts/NFTCardContract";
 import { useAppSelector } from "@/reduxs/hooks";
 import { ActionType, IAuctionInfo, INftItem } from "@/_types_";
 import {
@@ -19,7 +19,7 @@ import React from "react";
 import Nft from "./components/Nft";
 import ListModal from "./components/ListModal";
 import NftAuction from "../auctions/components/NftAuction";
-import AuctionContract from "@/contracts/AuctionContract";
+import AuctionContract from "@/contracts/Auction";
 import TransferModal from "./components/TransferModal";
 
 export default function MarketView() {

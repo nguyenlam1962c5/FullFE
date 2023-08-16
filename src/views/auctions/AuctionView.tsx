@@ -1,14 +1,14 @@
 import { useAppSelector } from "@/reduxs/hooks";
 import React from "react";
-import NftContract from "@/contracts/NftContract";
-import MarketContract from "@/contracts/MarketContract";
+import NftContract from "@/contracts/NFTCardContract";
+import MarketContract from "@/contracts/NFTCardMarketplaceContract";
 import { IAuctionInfo, INftItem } from "@/_types_";
 import { Flex, SimpleGrid, useBoolean } from "@chakra-ui/react";
 import NftAuction from "./components/NftAuction";
 import AuctionModal from "./components/AuctionModal";
-import AuctionContract from "@/contracts/AuctionContract";
+import AuctionContract from "@/contracts/Auction";
 import { SuccessModal } from "@/components";
-import IPTContract from "@/contracts/IPTContract";
+import BNBTContract from "@/contracts/BNBTContract";
 
 export default function AuctionView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);

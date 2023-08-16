@@ -1,7 +1,7 @@
 import { SuccessModal } from "@/components";
-import IPTContract from "@/contracts/IPTContract";
-import MarketContract from "@/contracts/MarketContract";
-import NftContract from "@/contracts/NftContract";
+import IPTContract from "@/contracts/BNBT/";
+import MarketContract from "@/contracts/NFTCardMarketplaceContract";
+import NftContract from "@/contracts/NFTCardContract";
 import { useAppSelector } from "@/reduxs/hooks";
 import { getToast } from "@/utils";
 import { INftItem } from "@/_types_";

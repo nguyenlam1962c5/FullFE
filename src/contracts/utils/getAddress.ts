@@ -5,9 +5,9 @@ const getAddress = (address: AddressType) => {
   return address[CHAIN_ID]
 };
 
-export const getCrowdSaleAddress =()=> getAddress(SMART_ADDRESS.CROWD_SALE);
-export const getUsdtAddress =()=> getAddress(SMART_ADDRESS.USDT);
-export const getNFTAddress =()=> getAddress(SMART_ADDRESS.NFT);
-export const getMarketAddress =()=> getAddress(SMART_ADDRESS.MARKET);
+export const getCrowdSaleAddress =()=> getAddress(SMART_ADDRESS.CROWDSALE);
+export const getUSDTAddress =()=> getAddress(SMART_ADDRESS.USDT);
+export const getNFTCardAddress =()=> getAddress(SMART_ADDRESS.NFTCARD);
+export const getNFTCardMarketplacetAddress =()=> getAddress(SMART_ADDRESS.NFTCARDMARKETPLACE);
 export const getAuctionAddress =()=> getAddress(SMART_ADDRESS.AUCTION);
-export const getIptAddress =()=> getAddress(SMART_ADDRESS.IPT);
+export const getBNBTAddress =()=> getAddress(SMART_ADDRESS.BNBT);
