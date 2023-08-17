@@ -59,7 +59,7 @@ export default function NftP2P({ item, isBuying, isDisabled, onAction }: IProps)
         <HStack w="full">
           <Text color="#fedf5680" fontWeight="bold" fontSize="14px">Price:</Text>
           <Spacer />
-          <Text color="#fedf56" fontWeight="bold">{numberFormat(item.price || 0)} IPT</Text>
+          <Text color="#fedf56" fontWeight="bold">{numberFormat(item.price || 0)} BNBT</Text>
         </HStack>
       </VStack>     
 
