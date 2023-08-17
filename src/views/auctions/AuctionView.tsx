@@ -8,7 +8,7 @@ import NftAuction from "./components/NftAuction";
 import AuctionModal from "./components/AuctionModal";
 import AuctionContract from "@/contracts/AuctionContract";
 import { SuccessModal } from "@/components";
-import IPTContract from "@/contracts/BnbtContract";
+import BnbtContract from "@/contracts/BnbtContract";
 
 export default function AuctionView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);
@@ -38,8 +38,8 @@ export default function AuctionView() {
     setIsProcessing(true);
     try {
       const auctionContract = new AuctionContract(web3Provider);
-      const iptContract = new IPTContract(web3Provider);
-      await iptContract.approve(auctionContract._contractAddress, bid);
+      const bnbtContract = new BnbtContract(web3Provider);
+      await bnbtContract.approve(auctionContract._contractAddress, bid);
       const tx = await auctionContract.joinAuction(nftSelected.auctionId, bid);
       setTxHash(tx);
       setIsAuctionSuccess(true);

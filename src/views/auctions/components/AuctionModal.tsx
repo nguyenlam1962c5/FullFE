@@ -47,7 +47,7 @@ export default function AuctionModal({ nft, isProcessing, onAuction, ...props }:
               <Text fontSize="12px" fontStyle="italic" color="rgba(255,255,255,0.5)">Set your bid:</Text>
               <Flex w="full" my="10px">
                 <Input w="full" value={amount} onChange={(e) => setAmount(Number(e.target.value))} type="number" />
-                <Text fontWeight="bold" fontSize="24px" position="absolute" right="40px" color="rgba(255,255,255, 0.4)">IPT</Text>
+                <Text fontWeight="bold" fontSize="24px" position="absolute" right="40px" color="rgba(255,255,255, 0.4)">BNBT</Text>
               </Flex>
               <Button variant="primary" onClick={() => onAuction && onAuction(amount)} disabled={!amount || isProcessing}>
                 {isProcessing ? <Spinner /> : 'Place a bid'}
