@@ -1,5 +1,5 @@
 import { SuccessModal } from "@/components";
-import IPTContract from "@/contracts/IPTContract";
+import BnbtContract from "@/contracts/BnbtContract";
 import MarketContract from "@/contracts/MarketContract";
 import NftContract from "@/contracts/NftContract";
 import { useAppSelector } from "@/reduxs/hooks";
@@ -37,8 +37,8 @@ export default function P2PView() {
     try {
       setCurrentNft(nft);
       const marketContract = new MarketContract(web3Provider);
-      const iptContract = new IPTContract(web3Provider);      
-      await iptContract.approve(marketContract._contractAddress, nft.price);
+      const bnbtContract = new BnbtContract(web3Provider);      
+      await bnbtContract.approve(marketContract._contractAddress, nft.price);
       const tx = await marketContract.buyNft(nft.id, nft.price);
       setTxHash(tx);
       onOpen();

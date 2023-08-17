@@ -8,7 +8,7 @@ import NftAuction from "./components/NftAuction";
 import AuctionModal from "./components/AuctionModal";
 import AuctionContract from "@/contracts/AuctionContract";
 import { SuccessModal } from "@/components";
-import IPTContract from "@/contracts/IPTContract";
+import IPTContract from "@/contracts/BnbtContract";
 
 export default function AuctionView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);

@@ -1,6 +1,6 @@
 import { SuccessModal } from "@/components";
 import ProcessingModal from "@/components/ProcessingModal";
-// import MarketContract from "@/contracts/MarketContract";
+import MarketContract from "@/contracts/MarketContract";
 import NftContract from "@/contracts/NftContract";
 import { useAppSelector } from "@/reduxs/hooks";
 import { ActionType, IAuctionInfo, INftItem } from "@/_types_";
@@ -53,10 +53,10 @@ export default function MarketView() {
     const nftContract = new NftContract(web3Provider);
     const nfts = await nftContract.getListNFT(wallet.address);
     setNfts(nfts.filter((p) => p.name));
-    // const marketContract = new MarketContract(web3Provider);
-    // const ids = await marketContract.getNFTListedOnMarketplace();
-    // const listedNfts = await nftContract.getNftInfo(ids);
-    // setNftsListed(listedNfts);
+    const marketContract = new MarketContract(web3Provider);
+    const ids = await marketContract.getNFTListedOnMarketplace();
+    const listedNfts = await nftContract.getNftInfo(ids);
+    setNftsListed(listedNfts);
 
     const auctionContract = new AuctionContract();
     const auctionNfts = await auctionContract.getAuctionByStatus();
@@ -85,9 +85,9 @@ export default function MarketView() {
       }
       case "UNLIST": {
         setIsUnList.on();
-        // const marketContract = new MarketContract(web3Provider);
-        // const tx = await marketContract.unListNft(item.id);
-        // setTxHash(tx);
+        const marketContract = new MarketContract(web3Provider);
+        const tx = await marketContract.unListNft(item.id);
+        setTxHash(tx);
         setAction(undefined);
         setNft(undefined);
         setIsUnList.off();
@@ -111,9 +111,9 @@ export default function MarketView() {
       const nftContract = new NftContract(web3Provider);
       let tx = "";
       if (modalType === "LISTING") {
-        // const marketContract = new MarketContract(web3Provider);
-        // await nftContract.approve(marketContract._contractAddress, nft.id);
-        // tx = await marketContract.listNft(nft.id, price);
+        const marketContract = new MarketContract(web3Provider);
+        await nftContract.approve(marketContract._contractAddress, nft.id);
+        tx = await marketContract.listNft(nft.id, price);
       } else {
         if (!expireDate) return;
         const auctionContract = new AuctionContract(web3Provider);

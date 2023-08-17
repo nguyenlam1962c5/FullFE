@@ -44,7 +44,7 @@ export interface INftItem {
 }
 
 export enum Clarity {
-  "D";
+  "D",
   "C",
   "B",
   "A",
