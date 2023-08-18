@@ -208,6 +208,7 @@ export default function MarketView() {
                   item={nft}
                   key={index}
                   index={index}
+                  
                   isUnList
                   onAction={(a) => selectAction(a, nft)}
                 />
