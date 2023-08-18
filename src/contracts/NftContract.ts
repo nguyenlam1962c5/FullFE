@@ -29,7 +29,7 @@ export default class NftContract extends Erc721 {
     return Promise.all(
       ids.map(async (id) => {
         const tokenUrl = await this._contract.tokenURI(id);
-        const obj = await (await fetch(`${tokenUrl} `)).json();
+        const obj = await (await fetch(`${tokenUrl}`)).json();
         const item: INftItem = { ...obj, id };
         return item;
       })
@@ -40,7 +40,7 @@ export default class NftContract extends Erc721 {
     return Promise.all(
       nfts.map(async (o: any) => {
         const tokenUrl = await this._contract.tokenURI(o.tokenId);
-        const obj = await (await fetch(`${tokenUrl} `)).json();
+        const obj = await (await fetch(`${tokenUrl}`)).json();
         const item: INftItem = { ...obj, id: o.tokenId, author: o.author, price: o.price };
         return item;
       })
@@ -51,7 +51,7 @@ export default class NftContract extends Erc721 {
     return Promise.all(
       nftsAuctions.map(async (o: IAuctionInfo) => {
         const tokenUrl = await this._contract.tokenURI(o.tokenId);
-        const obj = await (await fetch(`${tokenUrl} `)).json();
+        const obj = await (await fetch(`${tokenUrl}`)).json();
         const item: IAuctionInfo = { ...o, ...obj, id: o.tokenId };
         return item;
       })
