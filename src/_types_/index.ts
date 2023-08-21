@@ -40,7 +40,8 @@ export interface INftItem {
   attributes?: IAttribute[];
   //Listing
   price?: number;
-  author?: string;  
+  author?: string; 
+  // _price: number;
 }
 
 export enum Clarity {
@@ -52,7 +53,7 @@ export enum Clarity {
   "SS",
   "SSS",
 }
-export type ActionType = "LIST" | "UNLIST" | "TRANSFER" | "AUCTION";
+export type ActionType = "LIST" | "UNLIST" | "TRANSFER" | "AUCTION" | "BUYING";
 
 export interface IAuctionInfo extends  INftItem {
   auctionId: number;

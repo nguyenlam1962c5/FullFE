@@ -41,13 +41,13 @@ export default function MainLayout({children}: IProps) {
 
   return (
     <Flex
-      w={{ base: "full", lg: "70%" }}
+      w={{ base: "full", lg: "85%" }}
       flexDirection="column"
       margin="50px auto"
     >
       <Flex w="full" alignItems="center" justifyContent="center">
-        <Heading size="lg" fontWeight="bold">
-          Blockchain Trainee
+        <Heading fontSize="40px" fontWeight="bold">
+          KunFeng TestBlockChain
         </Heading>
         <Spacer />
         {menus.map((menu) => <Link href={menu.url} key={menu.url}>

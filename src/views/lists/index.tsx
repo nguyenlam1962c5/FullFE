@@ -22,7 +22,7 @@ import NftAuction from "../auctions/components/NftAuction";
 import AuctionContract from "@/contracts/AuctionContract";
 import TransferModal from "./components/TransferModal";
 
-export default function MarketView() {
+export default function ListView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);
   const [nfts, setNfts] = React.useState<INftItem[]>([]);
   const [nftsListed, setNftsListed] = React.useState<INftItem[]>([]);
@@ -107,7 +107,7 @@ export default function MarketView() {
   const handleListNft = async (price: number, expireDate?: Date | null) => {
     if (!price || !web3Provider || !wallet || !nft) return;
     setIsProcessing.on();
-    try {
+    try { 
       const nftContract = new NftContract(web3Provider);
       let tx = "";
       if (modalType === "LISTING") {
@@ -186,7 +186,7 @@ export default function MarketView() {
         </TabList>
         <TabPanels>
           <TabPanel>
-            <SimpleGrid w="full" columns={4} spacing={10}>
+            <SimpleGrid w="full" columns={{ base: 2, md: 3, lg: 4, xl: 5 }} spacing={10}>
               {nfts.map((nft, index) => (
                 <Nft
                   item={nft}
@@ -202,13 +202,12 @@ export default function MarketView() {
           </TabPanel>
 
           <TabPanel>
-            <SimpleGrid w="full" columns={4} spacing={10}>
+            <SimpleGrid w="full" columns={{ base: 2, md: 3, lg: 4, xl: 5 }} spacing={10}>
               {nftsListed.map((nft, index) => (
                 <Nft
                   item={nft}
                   key={index}
                   index={index}
-                  
                   isUnList
                   onAction={(a) => selectAction(a, nft)}
                 />
@@ -217,7 +216,7 @@ export default function MarketView() {
           </TabPanel>
 
           <TabPanel>
-            <SimpleGrid w="full" columns={4} spacing={10}>
+            <SimpleGrid w="full" columns={{ base: 2, md:3, lg: 4, xl: 5 }} spacing={10}>
               {auctions.map((nft, index) => (
                 <NftAuction
                   item={nft}

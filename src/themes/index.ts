@@ -12,9 +12,9 @@ const Button: ComponentStyleConfig = {
       borderRadius: "8px",
       color: "#6a5809",
       fontWeight: 'bold',      
-      padding: "25px 30px",
+      padding: "20px 25px",
       border: "1px solid #fedf56",
-      fontSize: "15px",
+      fontSize: "18px",
     },  
     'outline': {      
       borderRadius: "5px",

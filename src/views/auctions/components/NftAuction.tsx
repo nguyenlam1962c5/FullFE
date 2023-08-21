@@ -56,7 +56,7 @@ export default function NftAuction({ item, isCancel, onAction }: IProps) {
         <HStack w="full">
           <Text color="#fedf5680" fontWeight="bold" fontSize="14px">Highest bid</Text>
           <Spacer />
-          <Text color="#fedf56" fontWeight="bold">{numberFormat(item.lastBid)} IPT</Text>
+          <Text color="#fedf56" fontWeight="bold">{numberFormat(item.lastBid)} BNBT</Text>
         </HStack>
       </VStack>     
 

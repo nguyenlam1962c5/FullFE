@@ -7,11 +7,11 @@ import { getToast } from "@/utils";
 import { INftItem } from "@/_types_";
 import { SimpleGrid, useDisclosure, useToast } from "@chakra-ui/react";
 import React from "react";
-import NftP2P from "./components/NftP2P";
+import NftP2P from "./components/NftMarket";
 
-export default function P2PView() {
+export default function MarketView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);
-  const toast = useToast();
+  const toast = useToast(); 
   const [nfts, setNfts] = React.useState<INftItem[]>([]);
   const [currentNft, setCurrentNft] = React.useState<INftItem>();
   const [txHash, setTxHash] = React.useState<string>();

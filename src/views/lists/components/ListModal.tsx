@@ -29,7 +29,8 @@ export default function ListModal({
   isListing,
   onList,
   ...props
-}: IProps) {
+}: IProps) 
+{
   const [amount, setAmount] = React.useState<number>(0);
   const [startDate, setStartDate] = React.useState<Date | null>(new Date());
 

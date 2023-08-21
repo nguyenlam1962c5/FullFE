@@ -52,7 +52,8 @@ export const packages: IPackage[] = [
 ]
 
 export const menus: IMenu[] = [
-  {name: 'Invest', url: '/'},
-  {name: 'Market', url: '/market'},
+  {name: 'Tokens', url: '/'},
+  {name: 'List', url: '/list'},
+  {name: 'Markets', url: '/market'},
   {name: 'Auction', url: '/auction'},
 ]
