@@ -1,0 +1,16 @@
+{
+    "image": "https://github.com/nguyenlam1962c5/FullContract/blob/main/image/5.JPEG?raw=true",
+    "description": "Image 5",
+    "external_url": "https://github.com/nguyenlam1962c5/FullContract/blob/main/image/5.JPEG",
+    "name": "Token KunFeng01",
+    "attributes": [
+      {
+        "trait_type": "Name",
+        "value": "KunFeng01-BR"
+      },
+      {
+        "trait_type": "Vị trí",
+        "value": "Bottom-Right"
+      }
+    ]
+  }
