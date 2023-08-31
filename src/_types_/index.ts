@@ -9,7 +9,7 @@ export interface IRate {
 }
 
 export enum TOKEN {
-  BNB = "BNB",
+  BNBT = "BNBT",
   USDT = "USDT",
 }
 
@@ -44,15 +44,6 @@ export interface INftItem {
   // _price: number;
 }
 
-export enum Clarity {
-  "D",
-  "C",
-  "B",
-  "A",
-  "S",
-  "SS",
-  "SSS",
-}
 export type ActionType = "LIST" | "UNLIST" | "TRANSFER" | "AUCTION" | "BUYING";
 
 export interface IAuctionInfo extends  INftItem {

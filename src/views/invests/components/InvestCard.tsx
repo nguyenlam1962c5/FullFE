@@ -8,6 +8,7 @@ interface IProps {
   isBuying: boolean;
   rate: number;
   walletInfo?: IWalletInfo;
+  address?: string;
   onBuy?: () => void;
 }
 
@@ -86,7 +87,7 @@ export default function InvestCard({
         </Text>
       </HStack>
 
-      <Button w="full" variant="primary" disabled={!walletInfo?.address || isBuying} onClick={onBuy}>
+      <Button w="full" variant="primary" disabled={!walletInfo?.address && isBuying} onClick={onBuy}>
         {isBuying ? <Spinner /> : 'Buy Now'}        
       </Button>
 

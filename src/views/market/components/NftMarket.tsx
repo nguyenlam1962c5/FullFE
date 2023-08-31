@@ -1,5 +1,5 @@
 import { numberFormat } from "@/utils";
-import { Clarity, INftItem, ActionType } from "@/_types_";
+import { INftItem, ActionType } from "@/_types_";
 import {
   Flex,
   Image,
@@ -38,16 +38,6 @@ export default function NftP2P({ item, isBuying, isDisabled, onAction }: IProps)
           objectFit="cover"
           borderRadius="10px"
         />
-        <Box position="absolute" top={5} right={10}>
-          <Text fontWeight="bold" fontSize="40px" fontStyle="italic">
-            {
-              Clarity[
-                item.attributes?.find((p) => p.trait_type === "Rarity")
-                  ?.value || 0
-              ]
-            }
-          </Text>
-        </Box>
         <HStack bg="rgba(0,0,0,0.4)" position="absolute" top={5} px="10px">
           <Text>ID: {item.id.toString().padStart(5, "0")}</Text>
         </HStack>

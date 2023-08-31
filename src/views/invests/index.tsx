@@ -79,13 +79,13 @@ export default function InvestView() {
 
   return (
     <>
-      <SimpleGrid columns={{ base: 1, md:2, lg: 3 }} mt="50px" spacingY="20px">
+      <SimpleGrid columns={{ base: 1, lg: 3 }} mt="50px" spacingY="20px">
         {packages.map((pk, index) => (
           <InvestCard
             pak={pk}
             key={String(index)}
             isBuying={isProcessing && pak?.key === pk.key}
-            rate={pk.token === TOKEN.BNB ? rate.bnbRate : rate.usdtRate}
+            rate={pk.token === TOKEN.BNBT ? rate.bnbRate : rate.usdtRate}
             walletInfo={wallet}
             onBuy={() => handleBuyIco(pk)}
           />
@@ -96,7 +96,7 @@ export default function InvestView() {
         isOpen={isOpen}
         onClose={onClose}
         hash={txHash}
-        title="BUY BNBT"
+        title="BUY ICO"
       />
     </>
   );

@@ -7,7 +7,7 @@ export const packages: IPackage[] = [
     amount: 1000,
     bg: 'bnb-bg.jpeg',
     icon: 'bnb.png',
-    token: TOKEN.BNB,
+    token: TOKEN.BNBT,
   },
   {
     key: 'bnb-02',
@@ -15,7 +15,7 @@ export const packages: IPackage[] = [
     amount: 2000,
     bg: 'bnb-bg.jpeg',
     icon: 'bnb.png',
-    token: TOKEN.BNB,
+    token: TOKEN.BNBT,
   },
   {
     key: 'bnb-03',
@@ -23,7 +23,7 @@ export const packages: IPackage[] = [
     amount: 3000,
     bg: 'bnb-bg.jpeg',
     icon: 'bnb.png',
-    token: TOKEN.BNB,
+    token: TOKEN.BNBT,
   },
   {
     key: 'usdt-01',
