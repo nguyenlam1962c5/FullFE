@@ -23,8 +23,8 @@ export default function InvestView() {
 
   const getRate = React.useCallback(async() => {
     const crowdContract = new CrowSaleContract();
-    const bnbRate =  await crowdContract.getBnbRate();
-    const usdtRate = await crowdContract.getUsdtRate();  
+    const bnbRate =  await crowdContract.setBnbRate();
+    const usdtRate = await crowdContract.setUsdtRate();  
     setRate({bnbRate, usdtRate});
 
   }, []);
@@ -63,7 +63,7 @@ export default function InvestView() {
         await usdtContract.approve(crowdContract._contractAddress, pk.amount / rate.bnbRate);
         hash = await crowdContract.buyTokenByUSDT(pk.amount);
       } else {
-        hash = await crowdContract.buyTokenByBNB(pk.amount);
+        hash = await crowdContract.buyTokenByBNBT(pk.amount);
       }
       setTxHash(hash);
       onOpen();
@@ -79,7 +79,7 @@ export default function InvestView() {
 
   return (
     <>
-      <SimpleGrid columns={{ base: 1, lg: 3 }} mt="50px" spacingY="20px">
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 2, xl: 3 }} mt="50px" spacingY="20px">
         {packages.map((pk, index) => (
           <InvestCard
             pak={pk}
@@ -94,7 +94,9 @@ export default function InvestView() {
 
       <SuccessModal 
         isOpen={isOpen}
+        
         onClose={onClose}
+        
         hash={txHash}
         title="BUY ICO"
       />

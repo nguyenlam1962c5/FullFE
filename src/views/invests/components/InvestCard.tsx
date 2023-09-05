@@ -78,7 +78,7 @@ export default function InvestCard({
         border="1px solid #fff"
         color="rgba(255,255,255, 0.7)"
       >
-        {numberFormat(pak.amount)} BNBT
+        {numberFormat(pak.amount)} IPT
       </Button>
       <HStack my="15px">
         <Text color="gray">Amount of coins to pay: </Text>
@@ -87,7 +87,7 @@ export default function InvestCard({
         </Text>
       </HStack>
 
-      <Button w="full" variant="primary" disabled={!walletInfo?.address && isBuying} onClick={onBuy}>
+      <Button w="full" variant="primary" disabled={!walletInfo?.address || isBuying} onClick={onBuy}>
         {isBuying ? <Spinner /> : 'Buy Now'}        
       </Button>
 

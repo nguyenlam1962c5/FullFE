@@ -56,4 +56,10 @@ export  default class AuctionContract extends BaseInterface {
     const tx = await this._contract.joinAuction(auctionId, this._numberToEth(bid), this._option);
     return this._handleTransactionResponse(tx);
   }
+
+  finishAuction = async (auctionId: number, tokenId: number, lastBid: number) => {
+    console.log({tokenId, lastBid});
+    const tx = await this._contract.joinAuction(auctionId, tokenId, lastBid);
+    return this._handleTransactionResponse(tx);
+  }
 }

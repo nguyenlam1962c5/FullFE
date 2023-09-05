@@ -17,10 +17,11 @@ import CountdownTimer from "./CountDownTimer";
 interface IProps {
   item: IAuctionInfo;
   isCancel?: boolean;
+  isFinish?: boolean;
   onAction?: (action: ActionType) => void;
 }
 
-export default function NftAuction({ item, isCancel, onAction }: IProps) {
+export default function NftAuction({ item, isCancel, isFinish, onAction }: IProps) {
   return (
     <Flex
       justifyContent="center"
@@ -63,7 +64,14 @@ export default function NftAuction({ item, isCancel, onAction }: IProps) {
           onClick={() => onAction && onAction("AUCTION")}
         >
           {isCancel ? 'Cancel' : 'Place a bid'}
-        </Button>        
+        </Button>  
+        <Button
+          variant={isFinish? "outline" : "primary"}
+          w = "full"
+          mt="10px"
+        >
+          Finish Aunction
+        </Button>
       </SimpleGrid>
     </Flex>
   );

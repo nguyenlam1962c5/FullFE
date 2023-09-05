@@ -14,19 +14,19 @@ export default class CrowSaleContract extends BaseInterface {
     }
   }
 
-  async getBnbRate(): Promise<number> {
+  async setBnbRate(): Promise<number> {
     let rate = await this._contract.BNB_rate();
     return this._toNumber(rate);
   }
 
-  async getUsdtRate(): Promise<number> {
+  async setUsdtRate(): Promise<number> {
     const rate = await this._contract.USDT_rate();
     return this._toNumber(rate);
   }
 
-  async buyTokenByBNB(amount: number) {
-    const rate = await this.getBnbRate();
-    const tx: TransactionResponse = await this._contract.buyTokenByBNB({
+  async buyTokenByBNBT(amount: number) {
+    const rate = await this.setBnbRate();
+    const tx: TransactionResponse = await this._contract.buyTokenByBNBT({
       ...this._option,
       value: this._numberToEth(amount/rate),
     });
@@ -34,7 +34,7 @@ export default class CrowSaleContract extends BaseInterface {
   }
 
   async buyTokenByUSDT(amount: number) {
-    const rate = await this.getUsdtRate();
+    const rate = await this.setUsdtRate();
     const test = amount / rate;
     const tx: TransactionResponse = await this._contract.buyTokenByUSDT(
       this._numberToEth(amount/rate),
