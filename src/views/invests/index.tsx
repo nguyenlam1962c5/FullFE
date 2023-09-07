@@ -35,6 +35,9 @@ export default function InvestView() {
 
 
   const onConnectMetamask = async () => {
+    return new Promise ( async (resolve, reject) => {
+      console.log("Connect");
+
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(
         window.ethereum,
@@ -49,10 +52,16 @@ export default function InvestView() {
       );
       setWallet({ address, bnb: bnbBalance });
       setWeb3Provider(provider);
+    } else {
+      reject("Install Metamask");
     }
-  };
+  });
+};
 
+  onConnectMetamask();
+  
   const handleBuyIco = async(pk: IPackage) => {
+
     if (!web3Provider) return;
       setPak(pk);
       setIsProcessing(true);
@@ -91,12 +100,9 @@ export default function InvestView() {
           />
         ))}
       </SimpleGrid>
-
       <SuccessModal 
         isOpen={isOpen}
-        
         onClose={onClose}
-        
         hash={txHash}
         title="BUY ICO"
       />
