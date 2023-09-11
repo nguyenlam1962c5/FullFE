@@ -161,25 +161,25 @@ export default function ListView() {
   return (
     <Flex w="full">
       <Tabs>
-        <TabList borderBottomColor="#5A5A5A" borderBottomRadius={2} mx="15px">
+        <TabList borderBottomColor="#5A5A5A" borderBottomRadius={2} mx="20px">
           <Tab
             textTransform="uppercase"
-            color="#5A5A5A"
-            _selected={{ borderBottomColor: "white", color: "white" }}
+            color="white"
+            _selected={{ borderBottomColor: "yellow", color: "red" }}
           >
             ITEMS
           </Tab>
           <Tab
             textTransform="uppercase"
-            color="#5A5A5A"
-            _selected={{ borderBottomColor: "white", color: "white" }}
+            color="white"
+            _selected={{ borderBottomColor: "yellow", color: "red" }}
           >
             active listings
           </Tab>
           <Tab
             textTransform="uppercase"
-            color="#5A5A5A"
-            _selected={{ borderBottomColor: "white", color: "white" }}
+            color="white"
+            _selected={{ borderBottomColor: "yellow", color: "red" }}
           >
             Live Auctions
           </Tab>

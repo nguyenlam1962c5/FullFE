@@ -1,4 +1,4 @@
-import { Button, HStack, Image, Text } from '@chakra-ui/react';
+  import { Button, HStack, Image, Text } from '@chakra-ui/react';
 import React from 'react'
 import { numberFormat, showSortAddress } from '../utils';
 
@@ -9,10 +9,9 @@ interface IProps {
 
 export default function WalletInfo({address, amount}: IProps) {
   return (
-    <Button variant="outline" ml="10px">
+    <Button variant="outline" >
       <HStack>
-        <Text>{showSortAddress(address)}</Text>
-        <Image src='/bnb.png' w="25px" alt="bnb" ml="20px" />        
+        <Text>{showSortAddress(address)}/</Text>
         <Text>{numberFormat(amount)}</Text>
       </HStack>
     </Button>

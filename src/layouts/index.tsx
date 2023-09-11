@@ -43,7 +43,7 @@ export default function MainLayout({children}: IProps) {
     <Flex
       w={{ base: "full", lg: "85%" }}
       flexDirection="column"
-      margin="50px auto"
+      margin="50px"
     >
       <Flex w="full" alignItems="center" justifyContent="center">
         <Heading fontSize="40px" fontWeight="bold">

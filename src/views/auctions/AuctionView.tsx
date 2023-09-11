@@ -51,9 +51,11 @@ export default function AuctionView() {
     setIsProcessing(false);  
   }
 
+  const handleFinish = async () => {}
+
   return (
     <Flex w="full">
-      <SimpleGrid columns={4} spacing="20px">
+      <SimpleGrid columns={3} spacing="20px">
         {nfts.map((nft) => (
           <NftAuction item={nft} key={nft.id} onAction={() => {
             setNftSelected(nft);

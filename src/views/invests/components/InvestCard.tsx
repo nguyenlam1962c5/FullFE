@@ -8,7 +8,6 @@ interface IProps {
   isBuying: boolean;
   rate: number;
   walletInfo?: IWalletInfo;
-  address?: string;
   onBuy?: () => void;
 }
 
@@ -62,8 +61,8 @@ export default function InvestCard({
           w="80px"
           alt="verified"
           position="absolute"
-          bottom="-30px"
-          right="-20px"
+          bottom="-90px"
+          right="-100px"
         />
       </Box>
 
@@ -78,12 +77,12 @@ export default function InvestCard({
         border="1px solid #fff"
         color="rgba(255,255,255, 0.7)"
       >
-        {numberFormat(pak.amount)} BNBT
+        {numberFormat(pak.amount)} {pak.token}
       </Button>
       <HStack my="15px">
         <Text color="gray">Amount of coins to pay: </Text>
         <Text variant="notoSan" fontSize="16px">
-          {numberFormat(pak.amount / rate)} {pak.token}
+          {numberFormat(pak.amount / rate)} BNB
         </Text>
       </HStack>
 

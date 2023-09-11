@@ -3,7 +3,6 @@ import BnbtContract from "@/contracts/BnbtContract";
 import MarketContract from "@/contracts/MarketContract";
 import NftContract from "@/contracts/NftContract";
 import { useAppSelector } from "@/reduxs/hooks";
-import { getToast } from "@/utils";
 import { INftItem } from "@/_types_";
 import { SimpleGrid, useDisclosure, useToast } from "@chakra-ui/react";
 import React from "react";
@@ -11,7 +10,6 @@ import NftP2P from "./components/NftMarket";
 
 export default function MarketView() {
   const { web3Provider, wallet } = useAppSelector((state) => state.account);
-  const toast = useToast(); 
   const [nfts, setNfts] = React.useState<INftItem[]>([]);
   const [currentNft, setCurrentNft] = React.useState<INftItem>();
   const [txHash, setTxHash] = React.useState<string>();
@@ -43,14 +41,13 @@ export default function MarketView() {
       setTxHash(tx);
       onOpen();
     } catch (er: any) {
-      toast(getToast(er));
     }
     setCurrentNft(undefined);
-  }, [onOpen, toast, web3Provider]);
+  }, [onOpen, web3Provider]);
 
   return (
     <>
-      <SimpleGrid columns={4} spacing="20px">
+      <SimpleGrid columns={3} spacing="20px">
         {nfts.map((nft) => (
           <NftP2P
             item={nft}
@@ -62,7 +59,7 @@ export default function MarketView() {
         ))}
       </SimpleGrid>
       <SuccessModal
-        title="BUY NFT"
+        title=" SUCCESS "
         hash={txHash}
         isOpen={isOpen}
         onClose={onClose}

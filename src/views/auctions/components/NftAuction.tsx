@@ -66,11 +66,12 @@ export default function NftAuction({ item, isCancel, isFinish, onAction }: IProp
           {isCancel ? 'Cancel' : 'Place a bid'}
         </Button>  
         <Button
-          variant={isFinish? "outline" : "primary"}
-          w = "full"
+          
+          variant = "primary"
           mt="10px"
+          w = "210%"
         >
-          Finish Aunction
+          Finish
         </Button>
       </SimpleGrid>
     </Flex>

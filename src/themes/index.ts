@@ -11,6 +11,7 @@ const Button: ComponentStyleConfig = {
       bg: '#fedf56',
       borderRadius: "8px",
       color: "#6a5809",
+      width: "100% auto",
       fontWeight: 'bold',      
       padding: "20px 25px",
       border: "1px solid #fedf56",
@@ -22,7 +23,7 @@ const Button: ComponentStyleConfig = {
       fontWeight: 'bold',      
       padding: "12px 36px",
       border: "1px solid rgba(254,223,86,.6) !important", 
-    },   
+    },    
   }
 }
 

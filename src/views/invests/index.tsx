@@ -36,7 +36,6 @@ export default function InvestView() {
 
   const onConnectMetamask = async () => {
     return new Promise ( async (resolve, reject) => {
-      console.log("Connect");
 
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(
@@ -60,9 +59,12 @@ export default function InvestView() {
 
   onConnectMetamask();
   
-  const handleBuyIco = async(pk: IPackage) => {
+  const handleBuyTK = React.useCallback ( async (pk: IPackage) => {
 
     if (!web3Provider) return;
+      
+    try {
+
       setPak(pk);
       setIsProcessing(true);
       let hash ='';
@@ -76,14 +78,19 @@ export default function InvestView() {
       }
       setTxHash(hash);
       onOpen();
-    try {
 
     } catch(er: any) {
+
+      <SuccessModal 
+            isOpen={isOpen}
+            title=" Suspended trades "
+            onClose={onClose}
+          />
 
     }
     setPak(undefined);
     setIsProcessing(false);
-  }
+  }, [onOpen, web3Provider]);
 
 
   return (
@@ -96,15 +103,15 @@ export default function InvestView() {
             isBuying={isProcessing && pak?.key === pk.key}
             rate={pk.token === TOKEN.BNBT ? rate.bnbRate : rate.usdtRate}
             walletInfo={wallet}
-            onBuy={() => handleBuyIco(pk)}
+            onBuy={() => handleBuyTK(pk)}
           />
         ))}
       </SimpleGrid>
       <SuccessModal 
         isOpen={isOpen}
-        onClose={onClose}
         hash={txHash}
-        title="BUY ICO"
+        title=" SUCCESS "
+        onClose={onClose}
       />
     </>
   );
