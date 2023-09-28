@@ -20,9 +20,10 @@ interface IProps extends Omit<ModalProps, "children"> {
   nft?: INftItem;
   isProcessing?: boolean;
   onAuction?: (amount: number) => void;
+  onFinish?: (amount: number) => void;
 }
 
-export default function AuctionModal({ nft, isProcessing, onAuction, ...props }: IProps) {
+export default function AuctionModal({ nft, isProcessing, onAuction, onFinish, ...props }: IProps) {
   const [amount, setAmount] = React.useState<number>(0);
   return (
     <Modal closeOnOverlayClick={false} {...props}>

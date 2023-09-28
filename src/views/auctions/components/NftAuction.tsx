@@ -17,11 +17,12 @@ import CountdownTimer from "./CountDownTimer";
 interface IProps {
   item: IAuctionInfo;
   isCancel?: boolean;
-  isFinish?: boolean;
+  isFinishing?: boolean;
   onAction?: (action: ActionType) => void;
+  onFinish?: (action: ActionType) => void;
 }
 
-export default function NftAuction({ item, isCancel, isFinish, onAction }: IProps) {
+export default function NftAuction({ item, isCancel, isFinishing, onAction, onFinish }: IProps) {
   return (
     <Flex
       justifyContent="center"
@@ -39,8 +40,11 @@ export default function NftAuction({ item, isCancel, isFinish, onAction }: IProp
           objectFit="cover"
           borderRadius="10px"
         />
-        <HStack bg="rgba(0,0,0,0.4)" position="absolute" top={5} px="10px">
-          <Text>ID: {item.id.toString().padStart(5, "0")}</Text>
+        <HStack bg="rgba(0,0,0,0.4)" position="absolute" top={3} color="#e8f4f9cf" px="7px">
+          <Text>
+            ID: {item.id.toString().padStart(4, "0")} <br />
+            Auc...ID: {item.auctionId.toString().padStart(4, "0")}
+          </Text>
         </HStack>
       </Box>
       <VStack w="full" alignItems="flex-start">
@@ -65,14 +69,18 @@ export default function NftAuction({ item, isCancel, isFinish, onAction }: IProp
         >
           {isCancel ? 'Cancel' : 'Place a bid'}
         </Button>  
+        <SimpleGrid>
         <Button
-          
-          variant = "primary"
+          // variant={isFinishing || isDisabled ? "outline" : "primary"}
+          variant="primary"
           mt="10px"
           w = "210%"
+          // onClick={onFinish}
+          // disabled={isFinishing || isDisabled}
         >
           Finish
         </Button>
+        </SimpleGrid>
       </SimpleGrid>
     </Flex>
   );

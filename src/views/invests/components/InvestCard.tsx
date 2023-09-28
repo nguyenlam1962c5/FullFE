@@ -89,7 +89,6 @@ export default function InvestCard({
       <Button w="full" variant="primary" disabled={!walletInfo?.address || isBuying} onClick={onBuy}>
         {isBuying ? <Spinner /> : 'Buy Now'}        
       </Button>
-
     </Box>
   );
 }

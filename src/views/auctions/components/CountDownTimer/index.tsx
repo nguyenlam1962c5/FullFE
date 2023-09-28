@@ -15,14 +15,14 @@ const ShowCounter = ({
 }) => {
   return (
     <HStack px="0px" spacing="2px">
-      <Text fontSize="15px" px="0px">{days}</Text>    
-      <Text fontSize="15px">:</Text> 
-      <Text fontSize="15px">{hours}</Text>     
-      <Text fontSize="15px">:</Text> 
-      <Text fontSize="15px">{minutes}</Text>     
-      <Text fontSize="15px">:</Text> 
-      <Text fontSize="15px">{seconds.toString().padStart(2, '0')}</Text>           
-      <Text fontSize="15px">left</Text>
+      <Text fontSize="14px" px="0px">{days}</Text>    
+      <Text fontSize="14px">:</Text> 
+      <Text fontSize="14px">{hours}</Text>     
+      <Text fontSize="14px">:</Text> 
+      <Text fontSize="14px">{minutes}</Text>     
+      <Text fontSize="14px">:</Text> 
+      <Text fontSize="14px">{seconds.toString().padStart(2, '0')}</Text>           
+      <Text fontSize="14px">''</Text>
     </HStack>
   );
 };

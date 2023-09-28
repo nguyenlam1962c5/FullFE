@@ -3,7 +3,7 @@ import React from "react";
 import NftContract from "@/contracts/NftContract";
 import MarketContract from "@/contracts/MarketContract";
 import { IAuctionInfo, INftItem } from "@/_types_";
-import { Flex, SimpleGrid, useBoolean } from "@chakra-ui/react";
+import { Flex, SimpleGrid, useBoolean, useDisclosure } from "@chakra-ui/react";
 import NftAuction from "./components/NftAuction";
 import AuctionModal from "./components/AuctionModal";
 import AuctionContract from "@/contracts/AuctionContract";
@@ -19,6 +19,7 @@ export default function AuctionView() {
 
   const [isProcessing, setIsProcessing] = React.useState<boolean>(false);
   const [txHash, setTxHash] = React.useState<string>();
+  const {onClose, onOpen } = useDisclosure();
  
   const getListAuctions = React.useCallback(async () => {
     if (!web3Provider) return;
@@ -51,7 +52,22 @@ export default function AuctionView() {
     setIsProcessing(false);  
   }
 
-  const handleFinish = async () => {}
+  const handleFinish = async (auct: IAuctionInfo) => {
+    if (!web3Provider || !nftSelected) return;
+    setIsProcessing(true);
+    try{
+      const auctionContract = new AuctionContract(web3Provider);
+      const bnbtContract = new BnbtContract(web3Provider);
+      await bnbtContract.approve(auctionContract._contractAddress, auct.lastBid);
+      const tx = await auctionContract.finishAuction(auct.auctionId, auct.lastBid);
+      setTxHash(tx);
+      onOpen();
+    }
+    catch (ex: any) {
+      
+    }
+    setIsProcessing(false);
+  } 
 
   return (
     <Flex w="full">
@@ -69,7 +85,8 @@ export default function AuctionView() {
         isProcessing={isProcessing}
         nft={nftSelected}
         onClose={()=>setIsOpen.off()}
-        onAuction={(amount) => handleAuction(amount)}          
+        onAuction={(amount) => handleAuction(amount)}  
+                
       />
 
       <SuccessModal 
